@@ -21,10 +21,47 @@ function activate(context) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Tab Manager!');
+		vscode.window.showInformationMessage('Welcome to Tab Manager!');
+		var panel = vscode.window.createWebviewPanel(
+			'tab-manager',
+			'Visual Studio Tab Manager Extension',
+			vscode.ViewColumn.One,
+			{}
+		);
+		panel.webview.html = getWebviewContent();
+
+		panel.webview.onDidReceiveMessage(message=>{
+			switch(message.command){  
+				case 'alert':
+					vscode.window.showInformationMessage(message.text);
+					return;
+			}
+		});
 	});
 
 	context.subscriptions.push(disposable);
+}
+
+function getWebviewContent(){
+	return `<!DOCTYPE html>
+		<html>
+		<head>
+		<title>Visual Studio Tab Manager Extension By Chloe Sneddon/Petersen</title>
+		</head>
+		<body>
+			<h1>Features</h1>
+			<p>
+				<ul> 
+					<li> Perminate Tabs on left side bar.
+					<li> If double clicked that group appears in your above tab bar
+					<li> Branch Specific Tabs appear on top tab bar
+					<li> there is an option to click save branch tabs to perminate tabs (asks you what you would like to call this group)
+					<li> you can name groups kinda like how you can organize postman api calls.
+				</ul>
+			</p>
+			<input type = "Call extension.js" value="Call extension.js" onclick="vscode.postMessage({command: 'alert', text: 'hello from the webview'});"/>
+		</body>
+		</html>`;
 }
 
 // This method is called when your extension is deactivated
