@@ -89,7 +89,7 @@ Whether you’re jumping between feature branches or organizing project modules,
 ---
 
 ## About
-Hi my name is Chloe! Working as a backend software developer I noticed some functionality that would help my start-up-style work place run better. Jumping between branches frequently and working all the way through api calls had me thinking about a better organization for debugging and working in my project. With such a large code base it is easy to spend more than a couple minutes looking for the right file that you want. It was for these reasons and the hope for some professional development that drove me to create Tab-Manager. Hope it helps!
+Hi my name is Chloe! Working as a backend software developer I noticed some functionality that would help my start-up-style work place run better. Jumping between branches frequently and working all the way through api calls had me thinking about a better organization for debugging and working in my project. With such a large code base it is easy to spend more than a couple seconds looking for the right file that you want. It was for these reasons (and the hope for some professional development) that drove me to create Tab-Manager. Hope it helps!
 
 ---
 ## License
